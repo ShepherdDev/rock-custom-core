@@ -36,7 +36,7 @@ namespace RockWeb.Plugins.com_shepherdchurch.CustomCore.Groups
     /// Template block for developers to use to start a new block.
     /// </summary>
     [DisplayName( "Group Detail Lava" )]
-    [Category( "Groups" )]
+    [Category( "com_shepherdchurch > Custom Core > Groups" )]
     [Description( "Presents the details of a group using Lava" )]
 
     [LinkedPage( "Person Detail Page", "Page to link to for more information on a group member.", false, "", "", 0 )]
