@@ -95,21 +95,22 @@ namespace RockWeb.Plugins.com_shepherdchurch.CustomCore.Groups
                 Group group = null;
                 Guid personGuid = Guid.Empty;
                 GroupTypeRole groupMemberRole = null;
-                
+
                 // get group id from url
-                if ( PageParameter( "GroupId" ) != null )
+                if ( !string.IsNullOrWhiteSpace( PageParameter( "GroupId" ) ) )
                 {
                     int groupId = 0;
                     if ( Int32.TryParse( PageParameter( "GroupId" ), out groupId ) )
                     {
-                        group = new GroupService( rockContext ).Queryable("GroupType,GroupType.Roles").Where(g => g.Id == groupId ).FirstOrDefault();
+                        group = new GroupService( rockContext ).Queryable( "GroupType,GroupType.Roles" ).Where( g => g.Id == groupId ).FirstOrDefault();
                     }
                 }
                 else
                 {
                     Guid groupGuid = Guid.Empty;
-                    if ( Guid.TryParse( GetAttributeValue( "DefaultGroup" ), out groupGuid ) ) {
-                        group = new GroupService( rockContext ).Queryable( "GroupType,GroupType.Roles" ).Where( g => g.Guid == groupGuid ).FirstOrDefault(); ;
+                    if ( Guid.TryParse( GetAttributeValue( "DefaultGroup" ), out groupGuid ) )
+                    {
+                        group = new GroupService( rockContext ).Queryable( "GroupType,GroupType.Roles" ).Where( g => g.Guid == groupGuid ).FirstOrDefault();
                     }
                 }
 
@@ -134,7 +135,7 @@ namespace RockWeb.Plugins.com_shepherdchurch.CustomCore.Groups
                 }
 
                 // get group role id from url
-                if ( PageParameter( "GroupMemberRoleId" ) != null )
+                if ( !string.IsNullOrWhiteSpace( PageParameter( "GroupMemberRoleId" ) ) )
                 {
                     int groupMemberRoleId = 0;
                     if ( Int32.TryParse( PageParameter( "GroupMemberRoleId" ), out groupMemberRoleId ) )
@@ -162,7 +163,7 @@ namespace RockWeb.Plugins.com_shepherdchurch.CustomCore.Groups
                 }
 
                 // get person
-                if ( PageParameter( "PersonGuid" ) != null )
+                if ( !string.IsNullOrWhiteSpace( PageParameter( "PersonGuid" ) ) )
                 {
                     Guid.TryParse( PageParameter( "PersonGuid" ), out personGuid );
                 }
