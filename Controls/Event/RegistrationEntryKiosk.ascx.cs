@@ -446,7 +446,7 @@ namespace RockWeb.Plugins.com_shepherdchurch.CustomCore.Event
                             else
                             {
                                 // Check Login Requirement
-                                if ( RegistrationTemplate.LoginRequired && CurrentUser == null )
+                                if ( RegistrationTemplate.LoginRequired && ActivePerson == null )
                                 {
                                     var site = RockPage.Site;
                                     if ( site.LoginPageId.HasValue )
@@ -3506,7 +3506,7 @@ namespace RockWeb.Plugins.com_shepherdchurch.CustomCore.Event
             }
 
             lbSummaryPrev.Visible = CurrentPanel == 2;
-            lbSummaryNext.Visible = false;//CurrentPanel == 2;
+            lbSummaryNext.Visible = CurrentPanel == 2;
 
             lbPaymentPrev.Visible = CurrentPanel == 3;
             aStep2Submit.Visible = currentPanel == 3;
