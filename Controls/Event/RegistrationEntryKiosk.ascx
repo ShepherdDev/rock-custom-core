@@ -58,7 +58,11 @@
                     keyboardBuffer = String.fromCharCode(e.which);
                 } else if ((date.getTime() - lastKeyPress) < 100) {  // continuing the reading into the buffer if the stream of characters is still coming
                     keyboardBuffer += String.fromCharCode(e.which);
+                } else {
+                    lastKeyPress = date.getTime();
+                    return;
                 }
+
                 // if the character is a line break stop buffering and call postback
                 if (e.which == 13 && keyboardBuffer.length != 0) {
                     if (!swipeProcessing) {
