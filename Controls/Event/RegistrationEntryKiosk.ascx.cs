@@ -5004,6 +5004,8 @@ namespace RockWeb.Plugins.com_shepherdchurch.CustomCore.Event
 
             rblSavedCC.Items.Clear();
 
+            return; // DO NOT NOT USE SAVED ACCOUNTS WITH KIOSK
+
             if ( ActivePerson != null )
             {
                 // Get the saved accounts for the currently logged in user
