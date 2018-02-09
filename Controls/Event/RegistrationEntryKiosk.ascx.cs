@@ -2865,6 +2865,8 @@ namespace RockWeb.Plugins.com_shepherdchurch.CustomCore.Event
                 if ( !string.IsNullOrWhiteSpace( hfSwipe.Value ) )
                 {
                     paymentInfo = new SwipePaymentInfo( hfSwipe.Value );
+                    paymentInfo.Amount = RegistrationState.PaymentAmount ?? 0.0m;
+
                     // if not anonymous then add contact info to the gateway transaction
                     if ( registration.PersonAliasId.HasValue )
                     {
