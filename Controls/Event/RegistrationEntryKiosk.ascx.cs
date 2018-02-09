@@ -1510,15 +1510,15 @@ namespace RockWeb.Plugins.com_shepherdchurch.CustomCore.Event
                     }
                     var rgx = new System.Text.RegularExpressions.Regex( @"[^\d]" );
                     string ccNum = rgx.Replace( txtCreditCard.Text, "" );
-                    if ( string.IsNullOrWhiteSpace( ccNum ) )
+                    if ( txtCreditCard.Visible && string.IsNullOrWhiteSpace( ccNum ) )
                     {
                         validationErrors.Add( "Credit Card # is required" );
                     }
-                    if ( !mypExpiration.SelectedDate.HasValue )
+                    if ( mypExpiration.Visible && !mypExpiration.SelectedDate.HasValue )
                     {
                         validationErrors.Add( "Credit Card Expiration Date is required" );
                     }
-                    if ( string.IsNullOrWhiteSpace( txtCVV.Text ) )
+                    if ( txtCVV.Visible && string.IsNullOrWhiteSpace( txtCVV.Text ) )
                     {
                         validationErrors.Add( "Credit Card Security Code is required" );
                     }
@@ -3506,7 +3506,7 @@ namespace RockWeb.Plugins.com_shepherdchurch.CustomCore.Event
             }
 
             lbSummaryPrev.Visible = CurrentPanel == 2;
-            lbSummaryNext.Visible = CurrentPanel == 2;
+            lbSummaryNext.Visible = CurrentPanel == 2 && ( minimumPayment.Value - RegistrationState.PreviousPaymentTotal ) <= 0.0M;
 
             lbPaymentPrev.Visible = CurrentPanel == 3;
             aStep2Submit.Visible = currentPanel == 3;
