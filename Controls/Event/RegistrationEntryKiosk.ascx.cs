@@ -3517,6 +3517,11 @@ namespace RockWeb.Plugins.com_shepherdchurch.CustomCore.Event
 
             lSummaryAndPaymentTitle.Text = ( currentPanel == 2 && RegistrationTemplate != null ) ? "Review " + RegistrationTemplate.RegistrationTerm : "Payment Method";
             lPaymentInfoTitle.Text = currentPanel == 2 ? "<h4>Payment Method</h4>" : "";
+
+            if ( tbConfirmationEmail.Visible )
+            {
+                tbConfirmationEmail.Focus();
+            }
         }
 
         /// <summary>
