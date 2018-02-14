@@ -92,6 +92,8 @@
                     $('#<%= lbSuccessDone.ClientID %>').get(0).click();
                 }, 10000);
             }
+
+            swipeProcessing = false;
         });
     </script>
 
